@@ -127,6 +127,12 @@ bindsym XF86AudioNext exec ~/bin/media-keys.sh -n
 bindsym XF86AudioPrev exec ~/bin/media-keys.sh -r
 bindsym XF86AudioPlay exec ~/bin/media-keys.sh -u
 
+# scratchpad is dope
+bindsym $mod+Shift+M mark "scratchterm", move scratchpad
+bindsym $mod+m [con_mark="scratchterm"] scratchpad show
+bindsym $mod+Shift+F1 mark "scratch1", move scratchpad
+bindsym $mod+F1 [con_mark="scratch1"] scratchpad show
+
 # now playing (cmus)
 #bindsym Mod1+shift+n exec ~/proj/cmus-now-playing-notification/nowPlaying.sh
 
