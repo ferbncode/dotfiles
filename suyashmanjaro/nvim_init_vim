@@ -1,0 +1,90 @@
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+"
+" " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/nerdcommenter'
+"
+" " Any valid git URL is allowed
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+"
+" " Group dependencies, vim-snippets depends on ultisnips
+"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+"
+" " On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+"
+" Deoplete
+"
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" " Using a non-master branch
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+"
+" " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'ervandew/supertab'
+Plug 'flazz/vim-colorschemes'
+"
+" " Plugin options
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+Plug 'tpope/vim-fugitive'
+"
+" " Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"
+" " Unmanaged plugin (manually installed and updated)
+Plug '~/my-prototype-plugin'
+"
+Plug 'crusoexia/vim-dracula'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/Solarized'
+" " Add plugins to &runtimepath
+call plug#end()
+set number
+filetype plugin indent on
+set tabstop=4
+set softtabstop=0
+set expandtab
+set shiftwidth=4
+set smarttab
+set autoindent
+colorscheme dracula
+let mapleader=","
+nnoremap <c-p> :FZF<CR>
+nnoremap tn :tabnew
+nnoremap tt :tabnew<CR>:FZF<CR>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprevious<CR>
+nnoremap nh :nohlsearch<CR>
+nnoremap xw :%s/\s\+$//e<CR>
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+autocmd BufWritePre * :call TrimWhitespace()
+
+
+
+set mouse=
+" enable deoplete
+let g:deoplete#enable_at_startup = 1
+
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
