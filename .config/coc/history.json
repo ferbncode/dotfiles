@@ -1,0 +1,69 @@
+{
+  "diagnostics": {
+    "%2Fhome%2Futkarsh": [
+      "jk"
+    ]
+  },
+  "extensions": {
+    "%2Fhome%2Futkarsh%2Fgits%2Fnetproj%2Fsrc": [
+      "ma"
+    ]
+  },
+  "outline": {
+    "%2Fhome%2Futkarsh%2Fgits%2Fnetproj%2Fsrc": [
+      "fie ",
+      "ma",
+      "jk"
+    ],
+    "%2Fhome%2Futkarsh": [
+      "files"
+    ]
+  },
+  "lists": {
+    "%2Fhome%2Futkarsh%2Fgits%2Fbookrepo": [
+      "fi"
+    ],
+    "%2Fhome%2Futkarsh": [
+      "ex",
+      "files"
+    ],
+    "%2Fhome%2Futkarsh%2Fgits%2Fpushnotify": [
+      "link"
+    ]
+  },
+  "folders": {
+    "%2Fhome%2Futkarsh": [
+      "gits"
+    ]
+  },
+  "files": {
+    "%2Fhome%2Futkarsh%2Fgits%2Fpushnotify": [
+      "main"
+    ],
+    "%2Fhome%2Futkarsh%2Fgits%2Fnetproj": [
+      "toml",
+      "main"
+    ],
+    "%2Fhome%2Futkarsh": [
+      "main"
+    ]
+  },
+  "symbols": {
+    "%2Fhome%2Futkarsh": [
+      "?"
+    ],
+    "%2Fhome%2Futkarsh%2Fgits%2Ftui-rs": [
+      "sele"
+    ]
+  },
+  "commands": {
+    "%2Fhome%2Futkarsh": [
+      "comm"
+    ]
+  },
+  "buffers": {
+    "%2Fhome%2Futkarsh%2Fgits%2Fnetproj": [
+      "main"
+    ]
+  }
+}
