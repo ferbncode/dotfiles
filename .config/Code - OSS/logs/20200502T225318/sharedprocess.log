@@ -1,0 +1,15 @@
+[2020-05-02 22:53:22.056] [sharedprocess] [info] main {"machineId":"1c1c575bca7d05592c8795f6e56bdef08991630cee6982edab23005d28737f3e","windowId":2}
+[2020-05-02 22:53:22.085] [sharedprocess] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/home/utkarsh/.config/Code - OSS/User/snippets'
+[2020-05-02 22:53:56.644] [sharedprocess] [info] Installing extension: sainnhe.gruvbox-material
+[2020-05-02 22:53:57.794] [sharedprocess] [info] Downloaded extension: sainnhe.gruvbox-material /tmp/ddf15297-4444-4fd9-b431-5db117cc8d63
+[2020-05-02 22:54:02.077] [sharedprocess] [info] Starting to clean up unused language packs.
+[2020-05-02 22:54:20.067] [sharedprocess] [info] Extracted extension to /home/utkarsh/.vscode-oss/extensions/.sainnhe.gruvbox-material-6.2.0: sainnhe.gruvbox-material
+[2020-05-02 22:54:20.068] [sharedprocess] [info] Renamed to /home/utkarsh/.vscode-oss/extensions/sainnhe.gruvbox-material-6.2.0
+[2020-05-02 22:54:20.069] [sharedprocess] [info] Installation completed. sainnhe.gruvbox-material
+[2020-05-02 22:54:20.074] [sharedprocess] [info] Extensions installed successfully: sainnhe.gruvbox-material
+[2020-05-02 22:54:40.751] [sharedprocess] [info] Installing extension: jdinhlife.gruvbox
+[2020-05-02 22:54:42.823] [sharedprocess] [info] Downloaded extension: jdinhlife.gruvbox /tmp/8dd5dcdf-dc2d-45d3-8bcb-a17f6236fd89
+[2020-05-02 22:54:42.953] [sharedprocess] [info] Extracted extension to /home/utkarsh/.vscode-oss/extensions/.jdinhlife.gruvbox-1.4.0: jdinhlife.gruvbox
+[2020-05-02 22:54:42.954] [sharedprocess] [info] Renamed to /home/utkarsh/.vscode-oss/extensions/jdinhlife.gruvbox-1.4.0
+[2020-05-02 22:54:42.955] [sharedprocess] [info] Installation completed. jdinhlife.gruvbox
+[2020-05-02 22:54:42.960] [sharedprocess] [info] Extensions installed successfully: jdinhlife.gruvbox
