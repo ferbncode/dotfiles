@@ -1,69 +1,56 @@
 {
-  "diagnostics": {
-    "%2Fhome%2Futkarsh": [
-      "jk"
-    ]
-  },
-  "extensions": {
-    "%2Fhome%2Futkarsh%2Fgits%2Fnetproj%2Fsrc": [
-      "ma"
-    ]
-  },
-  "outline": {
-    "%2Fhome%2Futkarsh%2Fgits%2Fnetproj%2Fsrc": [
-      "fie ",
-      "ma",
-      "jk"
-    ],
-    "%2Fhome%2Futkarsh": [
-      "files"
-    ]
-  },
   "lists": {
-    "%2Fhome%2Futkarsh%2Fgits%2Fbookrepo": [
-      "fi"
-    ],
-    "%2Fhome%2Futkarsh": [
-      "ex",
-      "files"
-    ],
-    "%2Fhome%2Futkarsh%2Fgits%2Fpushnotify": [
-      "link"
-    ]
-  },
-  "folders": {
-    "%2Fhome%2Futkarsh": [
-      "gits"
+    "%2Fhome%2Futkarsh%2Fdotfiles": [
+      "files",
+      "loca",
+      "fol"
     ]
   },
   "files": {
-    "%2Fhome%2Futkarsh%2Fgits%2Fpushnotify": [
-      "main"
+    "%2Fhome%2Futkarsh%2Fdotfiles": [
+      "fox",
+      "upda"
     ],
-    "%2Fhome%2Futkarsh%2Fgits%2Fnetproj": [
-      "toml",
-      "main"
+    "%2Fhome%2Futkarsh%2Fgits%2Fspotifyd": [
+      "src/ma",
+      "f"
     ],
-    "%2Fhome%2Futkarsh": [
+    "%2Fhome%2Futkarsh%2Fcode%2Frusti": [
       "main"
-    ]
-  },
-  "symbols": {
-    "%2Fhome%2Futkarsh": [
-      "?"
-    ],
-    "%2Fhome%2Futkarsh%2Fgits%2Ftui-rs": [
-      "sele"
-    ]
-  },
-  "commands": {
-    "%2Fhome%2Futkarsh": [
-      "comm"
     ]
   },
   "buffers": {
-    "%2Fhome%2Futkarsh%2Fgits%2Fnetproj": [
-      "main"
+    "%2Fhome%2Futkarsh%2Fdotfiles": [
+      "upda"
+    ],
+    "%2Fhome%2Futkarsh%2Fgits%2Fspotifyd": [
+      "ma",
+      "rea",
+      "pico",
+      "con"
+    ],
+    "%2Fhome%2Futkarsh": [
+      "confipo"
+    ]
+  },
+  "maps": {
+    "%2Fhome%2Futkarsh%2Fgits%2Fspotifyd": [
+      "sym"
+    ]
+  },
+  "sessions": {
+    "%2Fhome%2Futkarsh%2Fgits%2Fspotifyd": [
+      "ini"
+    ]
+  },
+  "words": {
+    "%2Fhome%2Futkarsh%2Fgits%2Fspotifyd": [
+      "as"
+    ]
+  },
+  "location": {
+    "%2Fhome%2Futkarsh%2Fgits%2Fspotifyd": [
+      "ma"
     ]
   }
 }

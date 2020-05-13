@@ -1,0 +1,4 @@
+package neovim
+theme bobthefish
+theme default
+theme emoji-powerline
