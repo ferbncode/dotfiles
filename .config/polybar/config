@@ -1,0 +1,737 @@
+;set syn=dosini
+
+[global/wm]
+#margin-top = 8
+#margin-bottom = 8
+#margin-left = 8
+#margin-right = 8
+
+
+[colors]
+;orange = #FF6200
+;orange = #d65d0e
+darkgray = ${xrdb:color8}
+orange = ${xrdb:color9}
+white = #ebdbb2
+gray = #585858
+black = #090909
+red = #c795ae
+blue = #95aec7
+yellow = #c7ae95
+green = #aec795
+#background = #1f222d
+
+# hexolor
+#background = #262626
+
+# blue color theme
+background = #002635
+background-alt = #4e4e4e
+#foreground = #dfdfdf
+foreground = ${xrdb:foreground}
+foreground-alt = #4e4e4e
+primary = #1f222d
+secondary = #FF6200
+alert = #fb4934
+
+[bar/bar]
+#monitor = eDP-1
+bottom = true
+tray-position=right
+tray-scale = 1.1
+tray-padding=0
+tray-detached = false
+tray-offset-x = 0
+tray-background = ${colors.background-alt}
+tray-offset-y = -0
+
+;tray-maxsize = 16
+wm-restack = i3
+override-redirect = true
+width = 100%
+height = 26
+offset-x = 0%
+offset-y = 0
+
+locale = en_US.UTF-8
+
+enable-ipc = true
+
+padding-left = 1
+padding-right = 1
+
+module-margin-right = 1
+module-margin-left = 1
+
+modules-right = pulseaudio separator battery separator filesystem separator temperature_noveau temperature_amdgpu separator date  separator
+#modules-center = mpd 
+modules-center = menusites
+modules-left = i3 xwindow 
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+underline-size = 2
+
+
+; font-0 = "Inconsolata Nerd Font Complete Mono:size=10;2"
+; font-0 = "Inconsolata:size=10;2"
+; font-1 = "Font Awesome 5 Free:size=10;2"
+; font-1 = "FontAwesome:size=8;2"
+; font-1 = "NotoSansMono Nerd Font:size=10;2"
+font-0 = "UbuntuMono Nerd Font:style=Bold:size=12;2"
+font-1 = "UbuntuMono Nerd Font:style=Regular:size=12;2"
+font-2 = "Noto Sans Symbols2:style=Regular:size=12;2"
+
+##################################################################################################################
+
+[module/battery]
+
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+;
+; ; Use the following command to list batteries and adapters:
+; ; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP1
+;
+; ; If an inotify event haven't been reported in this many
+; ; seconds, manually poll for new values.
+; ;
+; ; Needed as a fallback for systems that don't report events
+; ; on sysfs/procfs.
+; ;
+; ; Disable polling by setting the interval to 0.
+; ;
+; enable-click = true
+; ; Default: 5
+#click-right = exec xfce4-power-manager-settings &
+label-click-right = pavucontrol &
+click-left = xfce4-power-manager-settings &
+poll-interval = 5
+;
+;
+; see "man date" for details on how to format the time string
+; ; NOTE: if you want to use syntax tags here you need to use %%{...}
+; ; Default: %H:%M:%S
+time-format = %H:%M
+;
+; ; Available tags:
+; ;   <label-charging> (default)
+; ;   <bar-capacity>
+; ;   <ramp-capacity>
+; ;   <animation-charging>
+format-charging = <animation-charging>   <label-charging>
+;
+; ; Available tags:
+; ;   <label-discharging> (default)
+; ;   <bar-capacity>
+; ;   <ramp-capacity>
+; ;   <animation-discharging>
+format-discharging = <ramp-capacity>   <label-discharging>
+;
+; ; Available tags:
+; ;   <label-full> (default)
+; ;   <bar-capacity>
+; ;   <ramp-capacity>
+format-full = <ramp-capacity> <label-full>
+
+; ; Available tokens:
+; ;   %percentage% (default) - is set to 100 if full-at is reached
+; ;   %percentage_raw%
+; ;   %time%
+; ;   %consumption% (shows current charge rate in watts)
+label-charging = %percentage%%
+;
+; ; Available tokens:
+; ;   %percentage% (default) - is set to 100 if full-at is reached
+; ;   %percentage_raw%
+; ;   %time%
+; ;   %consumption% (shows current discharge rate in watts)
+label-discharging = %percentage%%
+
+; ; Available tokens:
+; ;   %percentage% (default) - is set to 100 if full-at is reached
+; ;   %percentage_raw%
+ label-full = Full
+;
+; ; Only applies if <ramp-capacity> is used
+ ramp-capacity-0 = 
+ ramp-capacity-1 = 
+ ramp-capacity-2 = 
+ ramp-capacity-3 = 
+ ramp-capacity-4 = 
+;
+; ; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+;
+; ; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; ; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+##################################################################################################################
+
+
+
+[module/menusites]
+type = custom/menu
+
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+; expand-right = true
+expand-left = true
+; expand-top = true
+
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+;
+; Available exec commands:
+;   menu-open-LEVEL
+;   menu-close
+; Other commands will be executed using "/bin/sh -c $COMMAND"
+
+; menu-0-0 = Browsers
+; menu-0-0-exec = menu-open-1
+; menu-0-1 = Multimedia
+; menu-0-1-exec = menu-open-2
+; menu-0-2 = Sites
+; menu-0-2-exec = menu-open-3
+
+; menu-1-0 = Firefox
+; menu-1-0-exec = firefox &
+; menu-1-1 = Chromium
+; menu-1-1-exec = chromium &
+
+; menu-2-0 = Gimp
+; menu-2-0-exec = gimp &
+; menu-2-1 = Scrot
+; menu-2-1-exec = scrot &
+
+menu-0-0 =>  Reddit  <
+menu-0-0-exec = firefox --new-tab reddit.com &
+menu-0-1 =>  Youtube  <
+menu-0-1-exec = firefox --new-tab youtube.com &
+menu-0-2 =>  Google 
+menu-0-2-exec = firefox --new-tab google.com &
+; Ava3lable tags:
+;   <label-toggle> (default) - gets replaced with <label-(open|close)>
+;   <menu> (default)
+; Note that if you use <label-toggle> you must also include
+; the definition for <label-open>
+; format = <label-toggle> <menu>
+
+label-open = Sites
+label-close =Close  <
+
+; Optional item separator
+; Default: none
+label-separator = 
+
+
+########################################################
+
+[module/xwindow]
+;https://github.com/jaagr/polybar/wiki/Module:-xwindow
+type = internal/xwindow
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
+label-font = 2
+
+format-prefix = "  "
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+########################################################
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+;mount-1 = /home
+;mount-2 = /invalid/mountpoint
+
+label-mounted =   %free%
+#label-mounted-underline = ${colors.secondary}
+
+label-unmounted =
+label-unmounted-foreground = ${colors.black}
+poll-interval = 5
+
+########################################################
+
+[module/i3]
+;https://github.com/jaagr/polybar/wiki/Module:-i3
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = false
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = false
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces
+; containing 'code' in the label
+; Default: false
+fuzzy-match = false
+
+;extra icons to choose from
+;http://fontawesome.io/cheatsheet/
+;       v     
+
+ws-icon-0 = 1
+ws-icon-1 = 2
+ws-icon-2 = 3
+ws-icon-3 = 4
+ws-icon-4 = 5
+ws-icon-5 = 6
+ws-icon-6 = 7
+ws-icon-7 = 8
+ws-icon-8 = 9
+ws-icon-9 = 10
+ws-icon-default = " "
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background}
+label-mode-underline= #000000
+label-mode-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+; focused = Active workspace on focused monitor
+label-focused = %name%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.foreground}
+label-focused-underline = ${colors.secondary}
+label-focused-padding = 1
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+label-unfocused-padding = 1
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.foreground}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon% %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding =
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+; urgent = Workspace with urgency hint set
+label-urgent = %icon% %name%
+label-urgent-background = ${self.label-focused-background}
+label-urgent-foreground = #db104e
+label-urgent-padding =
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+format-online =<icon-prev><label-song><icon-next>
+format-online-underline = ${colors.white}
+format-online-padding =
+
+#label-song-font = 4
+label-song = %{A1:mpc toggle:}%artist% - %title%%{A}
+icon-play = 
+icon-pause = 
+icon-prev = 
+icon-next = 
+
+icon-prev-foreground = ${colors.darkgray} 
+icon-next-foreground = ${colors.darkgray}
+
+icon-play-padding =
+icon-pause-padding =
+icon-prev-padding =
+icon-next-padding = 
+label-song-padding =
+
+
+#################################################################################
+#################################################################################
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+; Default: 1.0
+interval = 1.0
+
+; See "https://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date-alt= %A, %d %B %Y
+
+; Optional time format
+time-alt = %H:%M:%S
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date= %A
+time= %H:%M
+;timezone = UTC
+;timezone-alt =UTC
+; Available tags:
+;   <label> (default)
+format =  <label>
+#format-background = #55ff3399
+#format-foreground = #fff
+
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label = %date% %time%
+label-font = 1
+label-foreground = ${colors.foreground}
+
+#################################################################################
+#################################################################################
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> 
+format-volume-padding =
+
+format-volume-underline = ${colors.white}
+
+label-volume = %{F#928374} %{F-}%percentage:3%%
+#label-volume-foreground = ${color.white}
+
+label-muted =%{F#928374} %{F-}mute
+format-muted = <label-muted>
+format-muted-underline = ${colors.white}
+format-muted-padding =
+#label-muted-foreground = ${colors.gray}
+
+format-padding =
+
+##################################################################################################################
+##################################################################################################################
+
+[module/temperature_noveau]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Thermal zone to use
+; To list all the zone types, run 
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+#hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+# noveou temp
+hwmon-path = /sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/hwmon/hwmon6/temp1_input
+; Base temperature for where to start the ramp (in degrees celsius)
+; Default: 0
+base-temperature = 20
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 80
+
+; Whether or not to show units next to the temperature tokens (°C, °F)
+; Default: true
+units = false
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+format = <label>
+
+; Available tags:
+;   <label-warn> (default)
+;   <ramp>
+format-warn = <label-warn>
+
+; Available tokens:
+;   %temperature% (deprecated)
+;   %temperature-c%   (default, temperature in °C)
+;   %temperature-f%   (temperature in °F)
+label =  GPU1 %temperature-c%
+
+; Available tokens:
+;   %temperature% (deprecated)
+;   %temperature-c%   (default, temperature in °C)
+;   %temperature-f%   (temperature in °F)
+label-warn =  GPU1 %temperature-c%
+label-warn-foreground = #f00
+
+; Requires the <ramp> tag
+; The icon selection will range from `base-temperature` to `warn-temperature`,
+; temperatures above `warn-temperature` will use the last icon
+; and temperatures below `base-temperature` will use `ramp-0`
+; ramp-0 = A
+; ramp-1 = B
+; ramp-2 = C
+; ramp-foreground = #55
+
+
+##################################################################################################################
+
+[module/temperature_amdgpu]
+type = internal/temperature
+interval = 0.5
+thermal-zone = 0
+hwmon-path = /sys/devices/pci0000:00/0000:00:08.1/0000:05:00.0/hwmon/hwmon7/temp1_input
+base-temperature = 20
+warn-temperature = 80
+units = false
+format = <label>
+format-warn = <label-warn>
+label =  GPU2 %temperature-c%
+label-warn =  GPU2 %temperature-c%
+label-warn-foreground = #f00
+ramp-foreground = #55
+
+
+##################################################################################################################
+ 
+[module/temperature_cpu]
+type = internal/temperature
+interval = 0.5
+thermal-zone = 0
+hwmon-path = /sys/devices/pci0000:00/0000:00:08.1/0000:05:00.0/hwmon/hwmon7/temp1_input
+base-temperature = 20
+warn-temperature = 60
+units = false
+format = <label>
+format-warn = <label-warn>
+label = CPU %temperature-c%
+label-warn = TEMP %temperature-c%
+label-warn-foreground = #f00
+ramp-foreground = #55
+
+[module/pulseaudio]
+type = internal/pulseaudio
+label-font = 2
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 0.5
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume>  <label-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels% (unreleased)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels% (unreleased)
+label-muted =  muted
+label-muted-foreground = #666
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 =  
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+; Right and Middle click (unreleased)
+click-right = pavucontrol &
+; click-middle =
+;
+;
+##################################################################################
+
+[module/keyboard]
+type = internal/xkeyboard
+
+; Available tags:
+;   <label-layout> (default)
+;   <label-indicator> (default)
+format = %{A1:~/.bin/toggkbl:}%{F#928374} %{F-}<label-layout> <label-indicator>%{A}
+format-spacing = 0
+format-underline = ${colors.white}
+
+; Available tokens:
+;   %layout%
+;   %name%
+;   %number%
+; Default: %layout%
+label-layout = %layout%
+format-padding =
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-indicator = %name%
+label-indicator-padding =
+
+[module/network]
+type = internal/network
+interface = wlp3s0
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3.0
+
+; Test connectivity every Nth update
+; A value of 0 disables the feature
+; NOTE: Experimental (needs more testing)
+; Default: 0
+;ping-interval = 3
+
+; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
+; Minimum output width of upload/download rate
+; Default: 3
+
+; Accumulate values from all interfaces
+; when querying for up/downspeed rate
+; Default: false
+accumulate-stats = true
+
+format-connected-padding =
+format-disconnected-padding =
+format-connected-underline = ${colors.white}
+format-disconnected-underline = ${colors.white}
+
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected = %{F#928374} %{F-}<label-connected> 
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+; Default: %ifname% %local_ip%
+label-connected = %signal:3%%
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+; Default: (none)
+label-disconnected = %{F#928374} %{F-}none
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %linkspeed% [wired]
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-1 = 📶
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+[module/separator]
+type = custom/text
+content = |
+content-foreground = #4e4e4e
+
+; vim:ft=dosini
